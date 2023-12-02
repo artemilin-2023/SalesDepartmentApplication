@@ -18,6 +18,7 @@ namespace SalesDepartmentApplication
             catch(Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                Console.ReadLine();
             }
         }
     }

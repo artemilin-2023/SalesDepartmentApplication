@@ -43,13 +43,12 @@ namespace SalesDepartmentApplication.Core
                 var random = new Random();
                 int positionsInOrder = random.Next(1, MaxPositionsInOrder);
 
-                var maxProductId = (int)database.Products.Select(p => p.Id).Max();
-                var products = await database.Products.ToArrayAsync();
+                var products = GetProducts(database);
                 
                 // генерация товара
                 while (order.Count < positionsInOrder)
                 {
-                    var newProductId = random.Next(0, maxProductId);
+                    var newProductId = random.Next(0, products.Count);
                     var product = products[newProductId];
 
                     if (!order.Select(o => o.Product).Contains(product))
@@ -64,6 +63,20 @@ namespace SalesDepartmentApplication.Core
 
                 return order;
             }
+        }
+
+        private List<Product> GetProducts(DataContext database)
+        {
+            var result = new List<Product>();
+
+            foreach (var warehouse in database.Warehouses)
+            {
+                var productsId = database.Cells.Where(c => c.WarehouseId == warehouse.Id).Select(c => c.ProductId).ToHashSet();
+                var products = database.Products.Where(p => productsId.Contains(p.Id));
+                result.AddRange(products);
+            }
+
+            return result;
         }
     }
 }
