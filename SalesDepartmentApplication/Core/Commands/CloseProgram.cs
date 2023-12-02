@@ -7,10 +7,12 @@ namespace SalesDepartmentApplication.Core
 {
     internal class CloseProgram : ICommand
     {
+        private const int TimeBeforeClosingMS = 1000;
+
         public async Task ExecuteAsync()
         {
             await Console.Out.WriteLineAsync("Программа завершена и сейчас закроется...");
-            Thread.Sleep(1000);
+            Thread.Sleep(TimeBeforeClosingMS);
             Environment.Exit(0);
         }
     }

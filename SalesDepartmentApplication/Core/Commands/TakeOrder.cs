@@ -12,6 +12,9 @@ namespace SalesDepartmentApplication.Core
 {
     internal class TakeOrder : ICommand
     {
+        private const int MaxPositionsInOrder = 4;
+        private const int MaxAmount = 3;
+
         public async Task ExecuteAsync()
         {
             Console.Clear();
@@ -38,9 +41,9 @@ namespace SalesDepartmentApplication.Core
                 var order = new List<OrderPosition>();
 
                 var random = new Random();
-                int positionsInOrder = random.Next(1, 4);
+                int positionsInOrder = random.Next(1, MaxPositionsInOrder);
 
-                var maxProductId = (int)database.Products.Select(p => p.Id).Max() - 1;
+                var maxProductId = (int)database.Products.Select(p => p.Id).Max();
                 var products = await database.Products.ToArrayAsync();
                 
                 // генерация товара
@@ -54,7 +57,7 @@ namespace SalesDepartmentApplication.Core
                         order.Add(new OrderPosition
                         {
                             Product = product,
-                            Amount = random.Next(1, 3)
+                            Amount = random.Next(1, MaxAmount)
                         });
                     }
                 }

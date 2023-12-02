@@ -7,6 +7,8 @@ namespace SalesDepartmentApplication.Core
 {
     internal static class Application
     {
+        private const int TimeBeforeContinuing = 600;
+
         public static async Task RunAsync()
         {
             while (true)
@@ -50,7 +52,7 @@ namespace SalesDepartmentApplication.Core
 
                     default:
                         Console.WriteLine("Команда не распознана");
-                        Thread.Sleep(600);
+                        Thread.Sleep(TimeBeforeContinuing);
                         break;
                 }
             }
