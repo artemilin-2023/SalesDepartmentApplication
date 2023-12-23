@@ -13,6 +13,8 @@ namespace SalesDepartmentApplication.Core
         {
             await Console.Out.WriteLineAsync("Программа завершена и сейчас закроется...");
             Thread.Sleep(TimeBeforeClosingMS);
+            Console.Clear();
+
             Environment.Exit(0);
         }
     }

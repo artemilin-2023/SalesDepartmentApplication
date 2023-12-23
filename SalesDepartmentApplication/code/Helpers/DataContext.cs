@@ -17,12 +17,13 @@ public partial class DataContext : DbContext
     {
         var configBuilder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json");
+            .AddJsonFile("settings/appsettings.json");
 
         var config = configBuilder.Build();
         var connectionPath = config.GetConnectionString("database");
 
         optionsBuilder.UseSqlite(connectionPath);
+        
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

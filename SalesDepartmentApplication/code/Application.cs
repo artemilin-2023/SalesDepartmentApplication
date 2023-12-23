@@ -16,8 +16,8 @@ namespace SalesDepartmentApplication.Core
                 var currentCommand = SelectCommand();
                 await currentCommand.ExecuteAsync();
 
-                await Console.Out.WriteLineAsync("Для продолжения нажмите любую кнопку...");
-                Console.ReadKey();
+                await Console.Out.WriteLineAsync("Для продолжения нажмите Enter...");
+                Console.Read();
             }
         }
 
