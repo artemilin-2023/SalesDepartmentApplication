@@ -1,7 +1,7 @@
 # SalesDepartmentApplication
-Отчет по лабораторной работе доступен по [ссылке](https://docs.google.com/document/d/148B8xzKCPMoavOG2IbnitD14-2F-1hEXWI3ctW93apw/edit?usp=drivesdk)
+Отчет по лабораторной работе лежит на гугл диске и доступен по [ссылке](https://docs.google.com/document/d/148B8xzKCPMoavOG2IbnitD14-2F-1hEXWI3ctW93apw/edit?usp=drivesdk)
 
-Быстре перемещение по файлу:
+Быстре перемещение по главам:
 1. [Описание](#описание)  
 2. [Быстрый запуск (docker)](#быстрый-запуск-docker)  
 3. [Начало работы](#начало-работы)
