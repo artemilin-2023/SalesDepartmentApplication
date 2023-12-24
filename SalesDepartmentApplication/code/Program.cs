@@ -1,4 +1,4 @@
-﻿global using SalesDepartmentApplication.Helpers;
+global using SalesDepartmentApplication.Helpers;
 using Microsoft.Extensions.Logging;
 using SalesDepartmentApplication.Core;
 using System;

@@ -1,0 +1,17 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE Warehouses (id INTEGER PRIMARY KEY, address TEXT NOT NULL UNIQUE);
+INSERT INTO Warehouses VALUES(1,'"г. Москва, ул. Складская, д. 5, к 1"');
+INSERT INTO Warehouses VALUES(2,'"Россия, Москва, Волоколамское шоссе, 4"');
+CREATE TABLE Products (id INTEGER PRIMARY KEY, name TEXT NOT NULL, description TEXT DEFAULT "Описание товара отсутствует", price REAL NOT NULL);
+INSERT INTO Products VALUES(1,'Кровать с подъемным механизмом Casablanca','Мягкая кровать Casablanca — это солидность, строгость и стиль. ',51999.0);
+INSERT INTO Products VALUES(2,'Кровать с подъёмным механизмом Sandra','Мягкая кровать Sandra, благодаря своему уникальному дизайну, станет центральным местом в современной спальне',34999.0);
+INSERT INTO Products VALUES(3,'Кухонный стол раздвижной Хьюстон тип 4','Раздвижной кухонный стол Хьюстон придется по душе тем, кто любит принимать гостей и устраивать семейные праздники',8999.0);
+INSERT INTO Products VALUES(4,'Стул Toledo Чёрный','Стул Toledo имеет строгий лаконичный силуэт без лишних деталей ',1999.0);
+INSERT INTO Products VALUES(5,'Искусственная ёлка Женева',NULL,14999.0);
+CREATE TABLE Cells (product_id INTEGER REFERENCES Products (id), warehouse_id INTEGER REFERENCES Warehouses (id), amount INTEGER DEFAULT (0), id INTEGER PRIMARY KEY);
+INSERT INTO Cells VALUES(5,2,3,1);
+INSERT INTO Cells VALUES(4,1,90,2);
+INSERT INTO Cells VALUES(2,1,5,3);
+INSERT INTO Cells VALUES(1,1,20,4);
+COMMIT;
