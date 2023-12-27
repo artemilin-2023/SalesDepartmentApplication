@@ -49,14 +49,16 @@ docker run --rm -it artemilin15474/sales-department-application:latest
 sudo apt update && sudo apt upgrade -y 
 sudo apt-get install sqlite3
 sudo apt-get install dotnet-sdk-7.0
+sudo apt-get install git
 ``` 
 ### Windows 
-Откройте коммандную строку **от имени администратора**
+Откройте коммандную строку (не PowerShell!) **от имени администратора**
 ```
 winget install sqlite.sqlite
 winget install Microsoft.DotNet.SDK.7
+winget install Git.Git
 ```
-
+### Дальнейшие шаги одинаковые
 1. Клонируем репозиторий  
 ```
 git clone https://github.com/artemilin-2023/SalesDepartmentApplication/
